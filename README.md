@@ -279,8 +279,8 @@ struct MapView: View {
     
     private func setRegion(_ coordinate: CLLocationCoordinate2D) {
         region = MKCoordinateRegion(
-            center: coordinate,
-            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            center: coordinate,  // 중심을 어디에 둘지
+            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))  // width and height of a map region, the delta values to indicate the desired zoom level
     }
     
     private func setAnnotationItems(_ coordinate: CLLocationCoordinate2D) {
@@ -291,17 +291,22 @@ struct MapView: View {
 ```
 
 - coordinateRegion
-  - MKDoordinateRegion
-- annotationItems
-- annotationContent
-  - MapMarker
-- onAppear
+  - MKCoordinateRegion
+- annotationItems : The collection of data that the view uses to display annotations
+  - annotation content를 만들기 위한 data list 로 이해했다.
+- annotationContent : a closure that produces the annotation content
 
 `annotation views`
 
-- MapPin
-- MapMarker
-- MapAnnotation
+- MapPin : A pin-shaped annotation that marks a map location
+- MapMarker : A balloon-shaped annotation that marks a map location
+- MapAnnotation : A customizable annotation that marks a map location
+
+##### 🥳 onAppear
+
+return value
+a view that triggers action when this view appears
+
 
 ### 3) 새롭게 알게 된 것
 
